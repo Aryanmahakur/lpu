@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-      int arr[10];
+    int arr[10];
 
     //     int n;
     //     cin >> n;
@@ -58,62 +58,94 @@ int main()
      }
      cout << secmax << endl;
     */
-// int arr[5] = {1, 2, 5, 5, 5};
+    // int arr[5] = {1, 2, 5, 5, 5};
 
-// int n = sizeof(arr) / sizeof(arr[0]);
-// bool flag=false;
-// for (int i = 0; i < n; i++)
-// {
-//     if (arr[i] == 4)
-//     { 
-//         flag=true;
-//         cout << "found 4 at index " << i << endl;
-//     }
-// }
-// if(flag==false){
-//     cout<<"not found"<<endl;
-// }
-    
+    // int n = sizeof(arr) / sizeof(arr[0]);
+    // bool flag=false;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (arr[i] == 4)
+    //     {
+    //         flag=true;
+    //         cout << "found 4 at index " << i << endl;
+    //     }
+    // }
+    // if(flag==false){
+    //     cout<<"not found"<<endl;
+    // }
 
     // for (int i = pos; i < n; i++) {
     //     arr[i] = arr[i + 1];
     // }
-    // n--; 
+    // n--;
 
     // for (int i = 0; i < n; i++)
     // {
     //     cout << arr[i] << " ";
     // }
     // cout << endl;
-     int arr[10];
-     int n; 
+    // int arr[10];
+    // int n;
 
-     //insertion at any point;
+    // // insertion at any point;
 
-      int pos=1;
-       if(pos==0){
-        for (int i = n-1; i >=0; i--)
-        {
-             arr[i+1]=arr[i];
-           
-        }
-        arr[0]=20;
-
-
-        
-       }
-       for (int i =n-1; i >=pos; i--)
-       {
-           arr[i+1]=arr[i];
-         if(pos==i){
-            arr[i]=20;
-        }
-        
-       }
-       if(pos==n){
-        arr[n+1]=20;
-       }
+    // int pos = 1;
+    // if (pos == 0)
+    // {
+    //     for (int i = n - 1; i >= 0; i--)
+    //     {
+    //         arr[i + 1] = arr[i];
+    //     }
+    //     arr[0] = 20;
+    // }
+    // for (int i = n - 1; i >= pos; i--)
+    // {
+    //     arr[i + 1] = arr[i];
+    //     if (pos == i)
+    //     {
+    //         arr[i] = 20;
+    //     }
+    // }
+    // if (pos == n)
+    // {
+    //     arr[n + 1] = 20;
+    // }
+     
+    // binary search
+    int arrr[10];
+    int n;
+    cin>>n;
+    for (int i = 0; i < n; i++)
+    {
+        /* code */
+        cin>>arr[i];
+    }
     
-
-    return 0;
+    int low = 0;
+    int high = n - 1;
+    int target = 20;
+    bool found = false;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arrr[mid] == target)
+        {
+            cout << "binary search" << endl;
+            cout << mid << endl;
+            found = true;
+            break;
+        }
+        else if (target < arr[mid])
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    if (!found)
+    {
+        cout << -1 << endl;
+    }
 }

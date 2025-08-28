@@ -1,1 +1,1 @@
-  scanf("%d", &n);
+   student s1;

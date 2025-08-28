@@ -1,48 +1,34 @@
 #include <iostream>
 using namespace std;
- class rajma{
-   public:
-   int water;
-   int rajma;
-   bool spicy;
-   string spices[6];
-   int givesum(int a,int b){
-      return a+b;
+class student
+{
+public:
+   int rollno;
+   string name;
+   string college;
+   string branch;
+   int age;
+
+   void printdetails()
+   { 
+      cin>>rollno;
+      cout << "student roll no is " << rollno << " name is " << name << " and age is " << age << " studing in branch " << branch << " at " << college << endl;
    }
+};
+void getip(student &s1, int rollno, string name, int age, string college, string branch)
+{
+   s1.rollno = rollno;
+   s1.name = name;
+   s1.age = age;
+   s1.college = college;
+   s1.branch = branch;
 
- };
-int main(){
-   rajma s;
-   
+   s1.printdetails();
+}
 
-cout<<s.givesum(5,5)<<endl;
-   // int arr[5] = {1, 2, 3, 4, 5};
-   // int n = sizeof(arr) / sizeof(arr[0]);
-   // cout << " enter numbers" << endl;
-   // int start = 0;
-   // int end = n - 1;
-
-   // // while (start < end)
-   // // {
-   // //    int temp = arr[start];
-   // //    arr[start] = arr[end];
-   // //    arr[end] = temp;
-   // //    start++;
-   // //    end--;
-
-   // // }
-   // for (int i = 0,  j = 4; i < j ; i++, j--)
-   // {
-   //    int temp = arr[i];
-   //    arr[i] = arr[j];
-   //    arr[j] = temp;
-   // }
-
-   // cout << "numbers you have entered" << endl;
-   // for (int i = 0; i < n; i++)
-   // {
-   //    cout << arr[i] << "  ";
-   // }
-
+int main()
+{
+   student s1;
+   getip(s1, 1234, "aryan", 19, "lpu", "cse");
    return 0;
 }
