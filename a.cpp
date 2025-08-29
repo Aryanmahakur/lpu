@@ -60,7 +60,7 @@ int main()
     }
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    reversearray(arr, pos, start, start1, length);
+    // reversearray(arr, pos, start, start1, length);
     reversearraywithrotaation(arr,pos,start,start1,length);
     return 0;
 }
