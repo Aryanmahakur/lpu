@@ -82,9 +82,9 @@ int returnindex(int *arr, int target, int n)
     }
     return -1;
 }
-void merge(int *arr1, int *arr2,int n)
+void merge(int *arr1, int *arr2, int n)
 {
-    int size=2*n;
+    int size = 2 * n;
     int arr[size];
     int index = 0;
     int counter1 = 0;
@@ -104,97 +104,110 @@ void merge(int *arr1, int *arr2,int n)
             index++;
         }
     }
-        while (counter1<n)
-        {
-            arr[index]=arr1[counter1];
-            index++;
-            counter1++;
-        }
-        while (counter2<n)
-        {
-            arr[index]=arr2[counter2];
-            index++;
-            counter2++;
-        }
-        
-    
+    while (counter1 < n)
+    {
+        arr[index] = arr1[counter1];
+        index++;
+        counter1++;
+    }
+    while (counter2 < n)
+    {
+        arr[index] = arr2[counter2];
+        index++;
+        counter2++;
+    }
 
     for (int i = 0; i < size; i++)
     {
         cout << arr[i] << " - ";
     }
+}
+void secmax(int arr[], int n)
+{
 
-}
-void secmax(int arr[],int n){
- 
- int max=INT_MIN;
- int secmax=INT_MIN;
- for (int i = 0; i < n; i++)
- {
-    if(arr[i]>max){
-        secmax=max;
-       max=arr[i];
-    }else if(arr[i]>secmax&&arr[i]<max){
-        secmax=arr[i];
-    }
- }
- 
- if(secmax==INT_MIN){
-    cout<<("no secmax");
- }else{
-    cout<<(secmax);
- }
-}
-void thirdmax(int arr[],int n){
- int max=INT_MIN;
- int secmax=INT_MIN;
- int thirdmax=INT_MIN;
- for (int i = 0; i < n; i++)
- {
-    if(arr[i]>max){
-        thirdmax=secmax;
-        secmax=max;
-       max=arr[i];
-    }else if(arr[i]>secmax&&arr[i]<max){
-        thirdmax=secmax;
-        secmax=arr[i];
-    }else if(arr[i]<secmax&&arr[i]>thirdmax&&arr[i]<max){
-       thirdmax=arr[i];
-    }
- }
- 
- if(thirdmax==INT_MIN){
-    cout<<("no thirdmax");
- }else{
-    cout<<(thirdmax);
- }
-}
-void reversearr(int arr[],int n,int k){
-    for (int i = 0; i < n; i +=k)
+    int max = INT_MIN;
+    int secmax = INT_MIN;
+    for (int i = 0; i < n; i++)
     {
-        int left=i;
-        int right= min(i+k-1,n-1) ;
-        while (left<right)
+        if (arr[i] > max)
         {
-            swap(arr[left],arr[right]);
+            secmax = max;
+            max = arr[i];
+        }
+        else if (arr[i] > secmax && arr[i] < max)
+        {
+            secmax = arr[i];
+        }
+    }
+
+    if (secmax == INT_MIN)
+    {
+        cout << ("no secmax");
+    }
+    else
+    {
+        cout << (secmax);
+    }
+}
+void thirdmax(int arr[], int n)
+{
+    int max = INT_MIN;
+    int secmax = INT_MIN;
+    int thirdmax = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > max)
+        {
+            thirdmax = secmax;
+            secmax = max;
+            max = arr[i];
+        }
+        else if (arr[i] > secmax && arr[i] < max)
+        {
+            thirdmax = secmax;
+            secmax = arr[i];
+        }
+        else if (arr[i] < secmax && arr[i] > thirdmax && arr[i] < max)
+        {
+            thirdmax = arr[i];
+        }
+    }
+
+    if (thirdmax == INT_MIN)
+    {
+        cout << ("no thirdmax");
+    }
+    else
+    {
+        cout << (thirdmax);
+    }
+}
+void reversearr(int arr[], int n, int k)
+{
+    for (int i = 0; i < n; i += k)
+    {
+        int left = i;
+        int right = min(i + k - 1, n - 1);
+        while (left < right)
+        {
+            swap(arr[left], arr[right]);
             left++;
             right--;
         }
-        
     }
     for (int i = 0; i < n; i++)
     {
-        cout<<arr[i]<<endl;
+        cout << arr[i] << endl;
     }
-    
-    
 }
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxProductTriplet(vector<int>& arr) {
+int maxProductTriplet(vector<int> &arr)
+{
     int n = arr.size();
-    if (n < 3) {
+    if (n < 3)
+    {
         cout << "Array must have at least 3 elements.\n";
         return -1;
     }
@@ -202,22 +215,46 @@ int maxProductTriplet(vector<int>& arr) {
     // Sort the array
     sort(arr.begin(), arr.end());
 
-   int max1=arr[n-1]*arr[n-2]*arr[n-3];
-   int max2=arr[0]*arr[1]*arr[n-1];
+    int max1 = arr[n - 1] * arr[n - 2] * arr[n - 3];
+    int max2 = arr[0] * arr[1] * arr[n - 1];
 
-    return max(max1,max2);
+    return max(max1, max2);
 }
-
-
+void removeduplicates(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        int a = arr[i];
+        for (int j = i + 1; j < n;)
+        {
+            if (a == arr[j])
+            {
+               for (int k = j; k < n-1; k++)
+               {
+                arr[k]=arr[k+1];
+               }
+               n--;
+            }else{
+                j++;
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout<<arr[i]<<" - ";
+    }
+    
+}
 
 int main()
 {
-     vector<int>arr = {-10, -3, 5, 6, -20};
-
-   // int capacity = 10;
-   // merge(arr1, arr2,4);
+//    vector<int> arr = {-10, -3, 5, 6, -20};
+    int arr[] = {1, 2, 2, 3, 3, 3, 4, 5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    // int capacity = 10;
+    // merge(arr1, arr2,4);
     // deletetarget(arr,3,n);
     // insertSorted(arr, n, 4, capacity);
-    //thirdmax(arr,n);
-    cout<<maxProductTriplet(arr);
+    // thirdmax(arr,n);
+    removeduplicates(arr,n);
 }
