@@ -123,14 +123,101 @@ void merge(int *arr1, int *arr2,int n)
     {
         cout << arr[i] << " - ";
     }
+
 }
+void secmax(int arr[],int n){
+ 
+ int max=INT_MIN;
+ int secmax=INT_MIN;
+ for (int i = 0; i < n; i++)
+ {
+    if(arr[i]>max){
+        secmax=max;
+       max=arr[i];
+    }else if(arr[i]>secmax&&arr[i]<max){
+        secmax=arr[i];
+    }
+ }
+ 
+ if(secmax==INT_MIN){
+    cout<<("no secmax");
+ }else{
+    cout<<(secmax);
+ }
+}
+void thirdmax(int arr[],int n){
+ int max=INT_MIN;
+ int secmax=INT_MIN;
+ int thirdmax=INT_MIN;
+ for (int i = 0; i < n; i++)
+ {
+    if(arr[i]>max){
+        thirdmax=secmax;
+        secmax=max;
+       max=arr[i];
+    }else if(arr[i]>secmax&&arr[i]<max){
+        thirdmax=secmax;
+        secmax=arr[i];
+    }else if(arr[i]<secmax&&arr[i]>thirdmax&&arr[i]<max){
+       thirdmax=arr[i];
+    }
+ }
+ 
+ if(thirdmax==INT_MIN){
+    cout<<("no thirdmax");
+ }else{
+    cout<<(thirdmax);
+ }
+}
+void reversearr(int arr[],int n,int k){
+    for (int i = 0; i < n; i +=k)
+    {
+        int left=i;
+        int right= min(i+k-1,n-1) ;
+        while (left<right)
+        {
+            swap(arr[left],arr[right]);
+            left++;
+            right--;
+        }
+        
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+    
+    
+}
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxProductTriplet(vector<int>& arr) {
+    int n = arr.size();
+    if (n < 3) {
+        cout << "Array must have at least 3 elements.\n";
+        return -1;
+    }
+
+    // Sort the array
+    sort(arr.begin(), arr.end());
+
+   int max1=arr[n-1]*arr[n-2]*arr[n-3];
+   int max2=arr[0]*arr[1]*arr[n-1];
+
+    return max(max1,max2);
+}
+
+
+
 int main()
 {
-    int arr1[4] = {1, 3, 5, 7};
-    int arr2[4] = {2, 4, 6, 8};
-    int n = 4;
+     vector<int>arr = {-10, -3, 5, 6, -20};
+
    // int capacity = 10;
-    merge(arr1, arr2,4);
+   // merge(arr1, arr2,4);
     // deletetarget(arr,3,n);
     // insertSorted(arr, n, 4, capacity);
+    //thirdmax(arr,n);
+    cout<<maxProductTriplet(arr);
 }
