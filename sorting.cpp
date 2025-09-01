@@ -94,10 +94,10 @@ void sortusingbubble() {
 int main() {
     int arr[] = {1,3,5,7,9};
     int arr2[] = {2,4,6,8,10,12};
-   c
+   
     int n = sizeof(arr) / sizeof(arr[0]);
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
-    int n3 = sizeof(arr3) / sizeof(arr3[0]);
+  //  int n3 = sizeof(arr3) / sizeof(arr3[0]);
     //merge(arr,arr2,n,n2);
    // selectionsort(arr, n);
    sortusingbubble();
