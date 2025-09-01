@@ -64,13 +64,43 @@ void merge(int arr1[], int arr2[], int n,int n2)
     }
 }
 
+void sortusingbubble() {
+    int n;
+    cout << "Enter length: ";
+    cin >> n;
+
+    float arr[n];
+    for (int i = 0; i < n; i++) {
+        cout << "Enter a value: ";
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {   
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+
 int main() {
     int arr[] = {1,3,5,7,9};
     int arr2[] = {2,4,6,8,10,12};
+   c
     int n = sizeof(arr) / sizeof(arr[0]);
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
-    merge(arr,arr2,n,n2);
+    int n3 = sizeof(arr3) / sizeof(arr3[0]);
+    //merge(arr,arr2,n,n2);
    // selectionsort(arr, n);
+   sortusingbubble();
    
     return 0;
 }
