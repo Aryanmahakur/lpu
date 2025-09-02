@@ -22,63 +22,61 @@ int binarysearch(int arr[], int target, int n)
         {
             return mid;
         }
-
         if (target < arr[mid])
         {
             high = mid - 1;
         }
-        else
+        if (target > arr[mid])
         {
             low = mid + 1;
         }
     }
     return -1;
+};
 
-}
-
-void bubblesort(int arr[],int n){
-  for (int i = 0; i < n-1; i++)
-  {
-    for (int j = 0; j < n-i-1; j++)
+void bubblesort(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
     {
-        if (arr[j]>arr[j+1])
+        for (int j = 0; j < n - i - 1; j++)
         {
-            swap(arr[j],arr[j+1]);
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+            }
         }
-        
     }
-    
-  }
-  
 }
-void insertion(int arr[], int n) {
-    for (int i = 1; i < n; i++) {  
-        int key = arr[i];   // element to insert
+void insertion(int arr[], int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        int key = arr[i];
         int j = i - 1;
-
-        // shift larger elements one position ahead
-        while (j >= 0 && arr[j] > key) {
+        while (j >= 0 && arr[j] > key)
+        {
             arr[j + 1] = arr[j];
             j--;
         }
-        arr[j + 1] = key;  // insert the key
+
+        arr[j + 1] = key;
     }
 }
 
-void selectionsort(int arr[],int n){
-   for (int i = 0; i < n-1; i++)
-   {
-    int min=i;
-    for (int j = i+1; j < n; j++)
+void selectionsort(int arr[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
     {
-        if(arr[j]<arr[min]){
-            min=j;
+        int min_idx = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[min_idx])
+            {
+                min_idx = j;
+            }
         }
+        swap(arr[i], arr[min_idx]);
     }
-    swap(arr[i],arr[min]);
-    
-   }
-   
 }
 
 int main()
