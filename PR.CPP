@@ -18,7 +18,7 @@ void removeduplicates(int arr1[], int& n1)
             }
             elsec
             {
-                j++;a
+                j++;
             }
         }
     }
