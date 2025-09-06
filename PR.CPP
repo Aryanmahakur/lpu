@@ -22,7 +22,7 @@ void removeduplicates(int arr1[], int& n1)
             }
         }
     }
-    for (int i = 0; i < n1; i++){a
+    for (int i = 0; i < n1; i++){aa
      cout<<arr1[i]<<endl;
     }
 }
