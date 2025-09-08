@@ -32,7 +32,7 @@ public:
         while (temp->next != nullptr) {
             temp = temp->next;
         }
-        temp->next = newNode;
+        temp->next =newNode;
     }
    
     void insertAtBeginning(int val) {
@@ -73,9 +73,9 @@ public:
 
 int main() {
     LinkedList list;
-    // list.insertAtEnd(10);
+   // list.insertAtEnd(10);
     // list.insertAtEnd(20);
-    // list.insertAtEnd(30);
+     //list.insertAtEnd(30);
     list.insertAtBeginning(200);
     list.insertAtBeginning(100);
   //  list.deletelast();
