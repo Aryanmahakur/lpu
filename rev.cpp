@@ -1,30 +1,38 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-void swap(int *arr, int n)
-{
-   
-    for (int i = 0; i < 2; i++)
-    {
-        int temp = arr[i];
-        arr[i] = arr[n - 2 + i];
-        arr[n - 2 + i] = temp;
-    }
+void reverseString(vector<char> &s) {
+    int left = 0;
+    int right = s.size() - 1;
 
-    
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
+    while (left < right) {
+        // Swap characters
+        char temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+
+        left++;
+        right--;
     }
-    cout << endl;
 }
 
-int main()
-{
-    int arr[] = {1, 2, 3, 4, 5, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
+int main() {
+    vector<char> s = {'h','e','l','l','o'};
+    reverseString(s);
 
-    swap(arr, n);
+    // Print the reversed string
+    for(char c : s) {
+        cout << c << " ";
+    }
+    cout << endl;
+
+    vector<char> s2 = {'H','a','n','n','a','h'};
+    reverseString(s2);
+    for(char c : s2) {
+        cout << c << " ";
+    }
+    cout << endl;
 
     return 0;
 }

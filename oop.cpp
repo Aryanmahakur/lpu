@@ -1,18 +1,30 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class vehicle{
-    public:
+class vehicle
+{
+public:
     string type;
     int number;
     int year;
-   void printdetails(string type,int number,int year){
-     cout<<type<<endl;
-     cout<<number<<endl;
-     cout<<year<<endl;
-   }
+    void printdetails()
+    {
+        cout << type << endl;
+        cout << number << endl;
+        cout << year << endl;
+    }
+    // void printdetails(string type, int number, int year)
+    // {
+    //     cout << type << endl;
+    //     cout << number << endl;
+    //     cout << year << endl;
+    // }
 };
-int main(){
+int main()
+{
     vehicle v;
-    v.printdetails("car",1234,2025);
+    v.type="bike";
+    v.year=2025;
+    v.number=1234;
+    v.printdetails();
     return 0;
 }
