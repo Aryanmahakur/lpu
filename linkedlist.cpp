@@ -36,6 +36,10 @@ public:
     }
    
     void insertAtBeginning(int val) {
+        if(head==nullptr){
+            head = new Node(val);
+            return;
+        }
         Node* newNode = new Node(val);
         newNode->next = head;
         head = newNode;
@@ -69,9 +73,10 @@ public:
 
 int main() {
     LinkedList list;
-    list.insertAtEnd(10);
-    list.insertAtEnd(20);
-    list.insertAtEnd(30);
+    // list.insertAtEnd(10);
+    // list.insertAtEnd(20);
+    // list.insertAtEnd(30);
+    list.insertAtBeginning(200);
     list.insertAtBeginning(100);
   //  list.deletelast();
     list.display();
