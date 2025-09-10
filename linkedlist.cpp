@@ -26,8 +26,7 @@ public:
         Node* newNode = new Node(val);
         if (head == nullptr) {
             head = newNode;
-            return;
-        }
+            return;        }
         Node* temp = head;
         while (temp->next != nullptr) {
             temp = temp->next;
