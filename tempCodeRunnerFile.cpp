@@ -1,1 +1,1 @@
-Test::count=1;
+  list.display();

@@ -1,7 +1,5 @@
 #include <iostream>
 using namespace std;
-
-
 class Node {
 public:
     int data;
@@ -11,8 +9,6 @@ public:
         next = nullptr;
     }
 };
-
-
 class LinkedList {
 private:
     Node* head;
@@ -20,45 +16,54 @@ public:
     LinkedList() {
         head = nullptr;
     }
+    ~LinkedList() {
+        Node* temp = head;
+        while (temp != nullptr) {
+            Node* next = temp->next;
+            delete temp;
+            temp = next;
+        }
+    }
+   
+
+    Node* insertAtPos(int val, int pos) {
+        Node* newnode = new Node(val);
+        if (pos < 1) {
+          
+            return head;
+        }
+        if (pos == 1) {
+            newnode->next = head;
+            head = newnode;
+            return head;
+        }
+        Node* temp = head;
+        int counter = 1;
+        while (temp->next != nullptr && counter < pos - 1) {
+            temp = temp->next;
+            counter++;
+        }
+       
+        newnode->next = temp->next;
+        temp->next = newnode;
+        return head;
+    }
 
     
     void insertAtEnd(int val) {
-        Node* newNode = new Node(val);
-        if (head == nullptr) {
-            head = newNode;
-            return;        }
-        Node* temp = head;
-        while (temp->next != nullptr) {
-            temp = temp->next;
-        }
-        temp->next =newNode;
+      Node* newnode=new Node(val);
+      if(head==nullptr){
+        head=newnode;
+        return;
+      }
+      Node* temp=head;
+      while(temp->next!=nullptr){
+        temp=temp->next;
+      }
+      temp->next=newnode;
     }
+  
    
-    void insertAtBeginning(int val) {
-        if(head==nullptr){
-            head = new Node(val);
-            return;
-        }
-        Node* newNode = new Node(val);
-        newNode->next = head;
-        head = newNode;
-    }
-    /*Node* deletelast() {
-        if (head == nullptr) {
-            return nullptr;
-        }
-        if (head->next == nullptr) {
-            delete head;
-            return nullptr;
-        }
-        Node* temp = head;
-        while (temp->next->next != nullptr) {
-            temp = temp->next;
-        }
-        delete temp->next;
-        temp->next = nullptr;
-        return head;
-    }*/
    
     void display() {
         Node* temp = head;
@@ -72,13 +77,13 @@ public:
 
 int main() {
     LinkedList list;
-   // list.insertAtEnd(10);
-    // list.insertAtEnd(20);
-     //list.insertAtEnd(30);
-    list.insertAtBeginning(200);
-    list.insertAtBeginning(100);
-  //  list.deletelast();
-    list.display();
+   list.insertAtEnd(10);
+   list.insertAtEnd(20);
+    list.insertAtEnd(30);
    
+    list.display();
+    list.insertAtPos(40,2);
+    list.display();
+  
     return 0;
 }
