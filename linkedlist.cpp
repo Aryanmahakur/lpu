@@ -17,6 +17,7 @@ private:
     Node *head;
 
 public:
+int count=0;
     LinkedList()
     {
         head = nullptr;
@@ -34,8 +35,12 @@ public:
 
     void insertAtPos(int val, int pos)
     {
+        cout<<"we have inserted at "<<pos<<"  "<<"position ";
         Node* newnode= new Node(val);
         Node* curr=head;
+        if(pos>count){
+            cout<<"invalid"<<endl;
+        }
       if(pos<1){
         cout<<"can insert here"<<endl;
         return;
@@ -52,12 +57,11 @@ public:
     }
     newnode->next=curr->next;
      curr->next=newnode;
-    
-    
-    }
+}
 
     void insertAtEnd(int val)
     {
+        count++;
         Node *newnode = new Node(val);
         if (head == nullptr)
         {
@@ -72,6 +76,7 @@ public:
         temp->next = newnode;
     }
      void insertatAtBeginning(int val){
+        count++;
         Node* newnode= new Node(val);
         if(head==nullptr){
             head=newnode;
