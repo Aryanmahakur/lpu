@@ -32,31 +32,28 @@ public:
         }
     }
 
-    Node *insertAtPos(int val, int pos)
+    void insertAtPos(int val, int pos)
     {
-        Node *newnode = new Node(val);
-        if (pos < 1)
-        {
-
-            return head;
-        }
-        if (pos == 1)
-        {
-            newnode->next = head;
-            head = newnode;
-            return head;
-        }
-        Node *temp = head;
-        int counter = 1;
-        while (temp != nullptr && counter < pos - 1)
-        {
-            temp = temp->next;
-            counter++;
-        }
-
-        newnode->next = temp->next;
-        temp->next = newnode;
-        return head;
+        Node* newnode= new Node(val);
+        Node* curr=head;
+      if(pos<1){
+        cout<<"can insert here"<<endl;
+        return;
+      }
+      if(pos==1){
+         newnode->next=head;
+         head=newnode;
+         return;
+      }
+    for (int i = 1; i < pos-1; i++)
+    {
+        curr=curr->next;
+        
+    }
+    newnode->next=curr->next;
+     curr->next=newnode;
+    
+    
     }
 
     void insertAtEnd(int val)
@@ -103,8 +100,8 @@ int main()
     list.insertAtEnd(30);
 
     list.display();
-    list.insertAtPos(40, 3);
-    list.insertatAtBeginning(50);
+    list.insertAtPos(400, 3);
+   // list.insertatAtBeginning(50);
     list.display();
   //  list.display();
 
