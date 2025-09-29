@@ -42,23 +42,18 @@ class linkedlist{
 
         
     }
-    void insertatfirst(int a){
-        node* newnode= new node(a);
-        if(head==nullptr){
-          
-            head=newnode;
-            return;
-        }
-        newnode->next=head->next;
-        newnode->prev=head;
-        if(head->next!=nullptr){
-
-            head->next->prev=newnode;
-        }
-        head->next=newnode;
-
-
+    void insertatfirst(int a) {
+    node* newnode = new node(a);
+    if (head == nullptr) {
+        head = newnode;
+        return;
     }
+    newnode->next = head;
+    newnode->prev = nullptr;
+  
+    head = newnode;
+}
+
 
     void deletefirst(){
         if(head==nullptr){
